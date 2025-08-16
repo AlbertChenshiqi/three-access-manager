@@ -11,6 +11,6 @@ import "http/auth/auth.proto";
 service AuthService {
   // 统一Token获取接口
   rpc GetToken(auth.TokenRequest) returns (auth.TokenResponse) {
-    option (api.get) =  "/auth/token";
+    option (api.post) =  "/auth/token";
   };
 }

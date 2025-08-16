@@ -19,6 +19,6 @@ func Register(r *server.Hertz) {
 	root := r.Group("/", rootMw()...)
 	{
 		_auth := root.Group("/auth", _authMw()...)
-		_auth.GET("/token", append(_gettokenMw(), http.GetToken)...)
+		_auth.POST("/token", append(_gettokenMw(), http.GetToken)...)
 	}
 }
