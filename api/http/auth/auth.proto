@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "third-login/api/http/auth";
+
+// 统一Token获取请求
+message TokenRequest {
+  string platform = 1;       // 平台标识（wechat_miniprogram）
+  string app_id = 2;         // 应用标识（如微信小程序AppID）
+}
+
+// Token响应
+message TokenResponse {
+  string access_token = 1;   // 访问令牌
+}
+
+// 通用响应
+message CommonResponse {
+  int32 code = 1;            // 响应码
+  string message = 2;        // 响应消息
+  string data = 3;           // 响应数据（JSON字符串）
+}

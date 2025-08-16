@@ -1,0 +1,44 @@
+# 第三方登录管理系统配置文件
+server:
+  host: "0.0.0.0"
+  port: 8081
+  mode: "debug"  # debug, release
+  read_timeout: 30s
+  write_timeout: 30s
+
+# Redis配置
+redis:
+  host: "localhost"
+  port: 6379
+  password: ""
+  db: 0
+  pool_size: 10
+  min_idle_conns: 5
+  dial_timeout: 5s
+  read_timeout: 3s
+  write_timeout: 3s
+
+# 平台配置
+platforms:
+  wechat_miniprogram:
+    name: "微信小程序"
+    type: "wechat_miniprogram"
+    enabled: true
+    api_base_url: "https://api.weixin.qq.com"
+    apps:
+      wx1234567890abcdef:
+        app_secret: "your_test_app_secret_here"
+      wx9876543210fedcba:
+        app_secret: "your_prod_app_secret_here"
+      wxabcdef1234567890:
+        app_secret: "your_dev_app_secret_here"
+
+# 日志配置
+log:
+  level: "info"  # debug, info, warn, error
+  format: "json"  # json, text
+  output: "stdout"  # stdout, file
+  file_path: "logs/app.log"
+  max_size: 100  # MB
+  max_backups: 3
+  max_age: 28  # days

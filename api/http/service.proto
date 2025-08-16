@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package http;
+
+option go_package = "third-login/api/http";
+
+import "api.proto";
+import "http/auth/auth.proto";
+
+// 认证服务
+service AuthService {
+  // 统一Token获取接口
+  rpc GetToken(auth.TokenRequest) returns (auth.TokenResponse) {
+    option (api.get) =  "/auth/token";
+  };
+}
